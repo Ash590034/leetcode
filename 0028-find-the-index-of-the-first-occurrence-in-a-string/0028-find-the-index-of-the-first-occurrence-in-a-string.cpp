@@ -4,32 +4,14 @@ public:
     int strStr(string haystack, string needle) {
         int h=haystack.size();
         int n=needle.size();
-        int flag=0;
-        int index=-1;
-
-        
-
-        for(int i=0;i<h;i++){
-            int k=0;
-            if(haystack[i]==needle[k]){
-                flag=1;
-                index=i;
-                k++;
-                for(int j=i+1;j<i+n;j++){
-                    if(haystack[j]!=needle[k]){
-                        
-                        break;
-                    }
-                    else flag+=1;
-                    k++;
-                }
-                
-
+        for(int i=0;i<=h-n;i++){
+            for(int j=0;j<n;j++){
+                if(haystack[i+j]!=needle[j]) break;
+                if(j==n-1) return i;
             }
-            if (flag==n) return index;
-            
         }
         return -1;
+       
         
         
     }
